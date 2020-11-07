@@ -1,2 +1,2 @@
-# stepik lessons_ul automation
+# stepik lessons UI automation
 Repository with homework for the UI automation course
