@@ -25,26 +25,26 @@
         <div class="first_block">
             <div class="form-group first_class">
                 <label>First name*</label>
-                <input name="username" id="name" type="text" class="form-control first-class" placeholder="Input your first name" maxlength="32" required>
+                <input name="username" id="name" data-type="user-first-name" type="text" class="form-control first-class" placeholder="Input your first name" maxlength="32" required>
             </div>
             <div class="form-group second_class">
                 <label>Last name*</label>
-                <input type="text" class="form-control test" placeholder="Input your last name" maxlength="32" required>
+                <input name="userlastname" id="lastname" data-type="user-last-name" type="text" class="form-control test" placeholder="Input your last name" maxlength="32" required>
             </div>
 
             <div class="form-group third_class">
                 <label>Email*</label>
-                <input id="email" type="text" class="form-control third" placeholder="Input your email" maxlength="32" required>
+                <input name="useremail" id="email" data-type="user-email" type="text" class="form-control third" placeholder="Input your email" maxlength="32" required>
             </div>
         </div>
         <div class="second_block">
             <div class="form-group first_class">
                 <label>Phone:</label>
-                <input type="text" class="form-control first" placeholder="Input your phone:" maxlength="32">
+                <input name="userphone" id="phone" data-type="user-phone" type="text" class="form-control first" placeholder="Input your phone:" maxlength="32">
             </div>
             <div class="form-group second_class">
                 <label>Address:</label>
-                <input type="text" class="form-control second" placeholder="Input your address:" maxlength="32">
+                <input name="useraddress" id="address" data-type="user-address" type="text" class="form-control second" placeholder="Input your address:" maxlength="32">
             </div>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
