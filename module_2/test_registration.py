@@ -7,11 +7,11 @@ try:
     browser.get(link)
 
     # Ваш код, который заполняет обязательные поля
-    first_name = browser.find_element_by_css_selector("input[placeholder='Input your first name']")
+    first_name = browser.find_element_by_xpath("//input[@required and @placeholder='Input your first name']")
     first_name.send_keys("Мой ответ")
-    last_name = browser.find_element_by_css_selector("input[placeholder='Input your last name']")
+    last_name = browser.find_element_by_xpath("//input[@required and @placeholder='Input your last name']")
     last_name.send_keys("Мой ответ")
-    email = browser.find_element_by_css_selector("input[placeholder='Input your email']")
+    email = browser.find_element_by_xpath("//input[@required and @placeholder='Input your email']")
     email.send_keys("Мой ответ")
 
     # Отправляем заполненную форму
