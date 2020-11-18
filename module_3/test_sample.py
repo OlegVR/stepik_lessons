@@ -34,7 +34,7 @@ def test_new_user_registration():
         search_thank_you_text = browser.find_element_by_css_selector(search_thank_you_text_locator).text
         assert search_text in search_thank_you_text, "Registration page must contain the message of successful " \
                                                      "user registration."
-        print("Create first test!")
+        print("Successfully passed the first test!")
 
     finally:
         time.sleep(5)
@@ -65,7 +65,7 @@ def test_log_in_as_a_registered_user():
         # Assert
         search_thank_you_text = browser.find_element_by_css_selector(search_thank_you_text_locator).text
         assert search_text in search_thank_you_text, "Login page must contain a successful login message"
-        print("Create second test!")
+        print("Successfully passed the second test")
 
     finally:
         time.sleep(5)
