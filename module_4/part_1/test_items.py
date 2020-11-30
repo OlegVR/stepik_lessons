@@ -1,5 +1,4 @@
-link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
-search_text_languages_dict = {
+CORRECT_LANGUAGES_DICT = {
     "ru": "Добавить в корзину","ar": "إضافة إلى السلة", "ca": "Afegir a la cistella",
     "cs": "Přidat do košíku", "da": "Tilføj til kurv", "de": "In den Warenkorb legen",
     "en-gb": "Add to basket", "el": "Προσθήκη στο καλάθι", "es": "Añadir al carrito",
@@ -11,9 +10,12 @@ search_text_languages_dict = {
 
 
 def test_whether_the_add_product_to_cart_button(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     browser.implicitly_wait(5)
     browser.get(link)
-    text_page = browser.find_element_by_css_selector("button[class='btn btn-lg btn-primary btn-add-to-basket']").text
-    code_language = browser.find_element_by_css_selector("option[selected]").get_attribute("value")
-    assert search_text_languages_dict[code_language] in text_page, \
-            f"The search text: {search_text_languages_dict[code_language]} not in the text: {text_page}"
+
+    text_button = browser.find_element_by_css_selector("button[class='btn btn-lg btn-primary btn-add-to-basket']").text
+    language = browser.find_element_by_css_selector("option[selected]").get_attribute("value")
+
+    assert CORRECT_LANGUAGES_DICT[language] in text_button,\
+        f"The search text: {CORRECT_LANGUAGES_DICT[language]} not in the text: {text_button}"
