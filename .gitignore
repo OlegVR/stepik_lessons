@@ -2,4 +2,6 @@ venv/
 .idea
 .pytest_cache
 __pycache__
-.__pycashe__
+/__pycashe__/
+/.pytest_cache
+/.__pycashe__
