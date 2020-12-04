@@ -1,7 +1,6 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from module_4.language_data import CORRECT_LANGUAGES_DICT
 
 
 def pytest_addoption(parser):
@@ -12,7 +11,8 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="function")
 def browser(request):
     user_language = request.config.getoption("language")
-    if user_language not in CORRECT_LANGUAGES_DICT:
+
+    if user_language not in ['ru', 'en-GB', 'es', 'fr']:
         raise pytest.UsageError(f"Wrong language selected: {user_language} not in: ['ru', 'en-GB', 'es', 'fr']")
 
     options = Options()

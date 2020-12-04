@@ -1,4 +1,10 @@
-from module_4.language_data import CORRECT_LANGUAGES_DICT
+CORRECT_LANGUAGES_DICT = {
+    "ru": "Добавить в корзину",
+    "en-GB": "Add to basket",
+    "es": "Añadir al carrito",
+    "fr": "Ajouter au panier",
+    "en-gb": "Add to basket"
+}
 
 
 def test_whether_the_add_product_to_cart_button(browser):
