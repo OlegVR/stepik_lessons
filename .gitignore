@@ -5,3 +5,4 @@ __pycache__
 /__pycashe__/
 /.pytest_cache
 /.__pycashe__
+geckodriver.log
