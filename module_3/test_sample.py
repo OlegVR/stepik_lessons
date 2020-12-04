@@ -67,7 +67,7 @@ if __name__ == "__main__":
     success_login_msg_text_locator = "div.alertinner.wicon"
 
     user_password = "chupakabra124c"
-    user_email = "chupakabra7@au.nyam"
+    user_email = "chupakabra10@au.nyam"
 
     button_login_or_registration = "#login_link"
     input_email_locator = "input[name='registration-email']"
