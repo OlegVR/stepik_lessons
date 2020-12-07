@@ -10,10 +10,10 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="function")
 def browser(request):
-    user_language = request.config.getoption("language")
+    user_language = request.config.getoption("language").lower()
 
-    if user_language not in ['ru', 'en-GB', 'es', 'fr']:
-        raise pytest.UsageError(f"Wrong language selected: {user_language} not in: ['ru', 'en-GB', 'es', 'fr']")
+    if user_language not in ['ru', 'en-gb', 'es', 'fr']:
+        raise pytest.UsageError(f"Wrong language selected: {user_language} not in: ['ru', 'en-gb', 'es', 'fr']")
 
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
