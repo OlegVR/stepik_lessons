@@ -26,13 +26,12 @@ class TestMainPage:
 
         page.should_be_login_link()
 
+    def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+        page = MainPage(browser, link)
+        page.open()
 
-def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
-    page = MainPage(browser, link)
-    page.open()
+        page.go_to_basket()
+        basket_page = BasketPage(browser, browser.current_url)
 
-    page.go_to_basket()
-    basket_page = BasketPage(browser, browser.current_url)
-
-    basket_page.is_empty_basket()
-    basket_page.message_in_empty_basket(message=BASKET_DATA_DICT['en'])
+        basket_page.is_empty_basket()
+        basket_page.message_in_empty_basket(message=BASKET_DATA_DICT['en'])
