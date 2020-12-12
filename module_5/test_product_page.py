@@ -2,7 +2,6 @@ import pytest
 import time
 
 from .pages.product_page import ProductPage
-from .pages.main_page import MainPage
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
 from .data import BASKET_DATA_DICT
@@ -118,7 +117,6 @@ class TestUserAddToBasketFromProductPage:
     def test_user_can_add_product_to_basket(self, browser):
         page = ProductPage(browser, self.product_link)
         page.open()
-
         name_product = page.product_name_on_the_page()
         cost_product = page.cost_product_on_the_page()
 
