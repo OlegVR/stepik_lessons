@@ -20,11 +20,14 @@ class LoginPage(BasePage):
     def register_new_user(self, email, password):
         email_input = self.browser.find_element(*LoginPageLocators.INPUT_EMAIL)
         email_input.send_keys(email)
+
         password_input = self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD)
         password_input.send_keys(password)
+
         password_replay = self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD_REPLY)
         password_replay.send_keys(password)
-        button_register = self.browser.find_element(LoginPageLocators.BUTTON_REGISTER)
+
+        button_register = self.browser.find_element(*LoginPageLocators.BUTTON_REGISTER)
         button_register.click()
 
 
