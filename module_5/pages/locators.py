@@ -33,6 +33,5 @@ class BasePageLocators:
 
 
 class BasketPageLocators:
-    MESSAGE_EMPTY_BASKET = (By.CSS_SELECTOR, "#content_inner>:nth-child(1)")
-    NOT_ZERO_TO_BASKET = (By.CSS_SELECTOR, ".input-group input[value='1']")
-    NAME_PRODUCT_TO_BASKET = (By.CSS_SELECTOR, "div.col-sm-4 :nth-child(1) a")
+    MESSAGE_EMPTY_BASKET = (By.CSS_SELECTOR, "#content_inner p")
+    PRODUCT_IN_THE_BASKET = (By.CSS_SELECTOR, ".basket-items")
