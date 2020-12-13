@@ -33,5 +33,5 @@ class BasePageLocators:
 
 
 class BasketPageLocators:
-    MESSAGE_EMPTY_BASKET = (By.CSS_SELECTOR, "#content_inner p")
+    MESSAGE_EMPTY_BASKET = (By.CSS_SELECTOR, "#content_inner")
     PRODUCT_IN_THE_BASKET = (By.CSS_SELECTOR, ".basket-items")

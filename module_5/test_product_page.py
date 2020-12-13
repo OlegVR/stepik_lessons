@@ -4,7 +4,7 @@ import time
 from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
-from .data import BASKET_DATA_DICT
+from .data import BASKET_EMPTY_MESSAGE_DICT
 
 
 class TestProductPage:
@@ -91,7 +91,7 @@ class TestProductPage:
         basket_page = BasketPage(browser, browser.current_url)
 
         basket_page.is_empty_basket()
-        basket_page.message_in_empty_basket(message=BASKET_DATA_DICT['en'])
+        basket_page.message_in_empty_basket(message=BASKET_EMPTY_MESSAGE_DICT['en'])
 
 
 class TestUserAddToBasketFromProductPage:

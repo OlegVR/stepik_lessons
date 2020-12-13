@@ -8,12 +8,15 @@ class ProductPage(BasePage):
         button.click()
 
     def product_name_on_the_page(self):
+
         return self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
 
     def cost_product_on_the_page(self):
+
         return self.browser.find_element(*ProductPageLocators.COST_PRODUCT).text
 
     def should_add_to_basket_message(self):
+
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_MESSAGE), \
             'The page does not contain the message adding an item to the basket'
 

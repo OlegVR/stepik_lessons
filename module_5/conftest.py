@@ -13,6 +13,7 @@ def browser(request):
     user_language = request.config.getoption("language").lower()
 
     if user_language not in ['ru', 'en-gb', 'es', 'fr', 'en']:
+
         raise pytest.UsageError(f"Wrong language selected: {user_language} not in: ['ru', 'en-gb', 'es', 'fr', 'en']")
 
     options = Options()
@@ -20,4 +21,5 @@ def browser(request):
 
     browser = webdriver.Chrome(options=options)
     yield browser
+
     browser.quit()
