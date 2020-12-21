@@ -1,5 +1,0 @@
-input[id=name]
-//input[@name='userlastname']
-input.third
-//input[@data-type='user-phone']
-//input[contains(@class, 'second')]
