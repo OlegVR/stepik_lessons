@@ -1,30 +1,15 @@
 import pytest
 
-from .pages.login_page import LoginPage
 from .pages.main_page import MainPage
 from .pages.all_products_page import AllProductsPage
-from .data import USER_LOGIN_DICT
+from .user_authorization_setup import user_autorization_setup
 
 
 class TestAllProductsPage:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
-        # Data
         self.main_link = "http://selenium1py.pythonanywhere.com/"
-        email = USER_LOGIN_DICT["email"]
-        password = USER_LOGIN_DICT["password"]
-
-        # Arrange
-        main_page = MainPage(browser, self.main_link)
-        main_page.open()
-        main_page.go_to_login_page()
-
-        # Act
-        login_page = LoginPage(browser, browser.current_url)
-        login_page.authorizing_an_existing_user(email, password)
-
-        # Assert
-        login_page.should_be_authorized_user()
+        user_autorization_setup(browser, self.main_link)
 
     def test_is_not_be_success_message_add_product_to_basket(self, browser):
         # Arrange

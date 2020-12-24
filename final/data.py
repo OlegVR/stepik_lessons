@@ -6,11 +6,6 @@ USER_LOGIN_DICT = {
                    "password": "secretnumber1989"
                     }
 
-NAMES_SEARCH_PRODUCTS_LIST = [
-                            "The shellcoder's handbook",
-                            "Hacking Exposed Wireless",
-                            "Coders at Work"
-                            ]
 
 ALL_PRODUCTS_PAGE_DICT = {
                             "ru": "Все товары",

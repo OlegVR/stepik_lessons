@@ -3,9 +3,8 @@ import time
 
 from .pages.main_page import MainPage
 from .pages.search_page import SearchPage
-from .pages.login_page import LoginPage
 from .pages.product_page import ProductPage
-from .data import USER_LOGIN_DICT
+from .user_authorization_setup import user_autorization_setup
 
 
 name_product = "The shellcoder's handbook"
@@ -14,22 +13,8 @@ name_product = "The shellcoder's handbook"
 class TestSearchPageRegistredUser:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
-        # Data
         self.main_link = "http://selenium1py.pythonanywhere.com/"
-        email = USER_LOGIN_DICT['email']
-        password = USER_LOGIN_DICT['password']
-
-        # Arrange
-        main_page = MainPage(browser, self.main_link)
-        main_page.open()
-        main_page.go_to_login_page()
-
-        # Act
-        login_page = LoginPage(browser, browser.current_url)
-        login_page.authorizing_an_existing_user(email, password)
-
-        # Assert
-        main_page.should_be_authorized_user()
+        user_autorization_setup(browser, self.main_link)
 
     def test_go_to_product_page_from_search_page(self, browser):
         # Arrange

@@ -6,8 +6,8 @@ from .pages.login_page import LoginPage
 from .pages.search_page import SearchPage
 from .pages.all_products_page import AllProductsPage
 from .data import USER_LOGIN_DICT
-from .data import NAMES_SEARCH_PRODUCTS_LIST
 from .data import ALL_PRODUCTS_PAGE_DICT
+from .user_authorization_setup import user_autorization_setup
 
 
 class TestMainPageAuthorizationAndRegistration:
@@ -69,24 +69,16 @@ class TestMainPageAuthorizationAndRegistration:
 class TestMainPageSearchProducts:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
-        # Data
         self.main_link = "http://selenium1py.pythonanywhere.com/"
-        email = USER_LOGIN_DICT["email"]
-        password = USER_LOGIN_DICT["password"]
+        user_autorization_setup(browser, self.main_link)
 
-        # Arrange
-        main_page = MainPage(browser, self.main_link)
-        main_page.open()
-        main_page.go_to_login_page()
-
-        # Act
-        login_page = LoginPage(browser, browser.current_url)
-        login_page.authorizing_an_existing_user(email, password)
-
-        # Assert
-        login_page.should_be_authorized_user()
-
-    @pytest.mark.parametrize('name_product', NAMES_SEARCH_PRODUCTS_LIST)
+    @pytest.mark.parametrize('name_product',
+                             ["The shellcoder's handbook",
+                              "Hacking Exposed Wireless",
+                              "Coders at Work",
+                              "Applied cryptography",
+                              pytest.param("Mega good bock for programmers", marks=pytest.mark.xfail)
+                              ])
     def test_search_product(self, browser, name_product):
         # Arrange
         main_page = MainPage(browser, self.main_link)
@@ -105,22 +97,8 @@ class TestMainPageSearchProducts:
 class TestMainPageAllProduct:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
-        # Data
         self.main_link = "http://selenium1py.pythonanywhere.com/"
-        email = USER_LOGIN_DICT["email"]
-        password = USER_LOGIN_DICT["password"]
-
-        # Arrange
-        main_page = MainPage(browser, self.main_link)
-        main_page.open()
-        main_page.go_to_login_page()
-
-        # Act
-        login_page = LoginPage(browser, browser.current_url)
-        login_page.authorizing_an_existing_user(email, password)
-
-        # Assert
-        login_page.should_be_authorized_user()
+        user_autorization_setup(browser, self.main_link)
 
     def test_can_go_to_all_products_page(self, browser):
         # Data
